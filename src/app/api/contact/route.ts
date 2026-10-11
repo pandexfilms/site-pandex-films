@@ -1,102 +1,59 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Escapa o que o visitante digitou antes de pôr no HTML do e-mail.
+function esc(value: unknown) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, phone, subject, message } = await request.json();
+    const { name, email, company, subject, message } = await request.json();
 
-    // Validação básica
     if (!name || !email || !subject || !message) {
-      return NextResponse.json(
-        { error: 'Todos os campos obrigatórios devem ser preenchidos' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Preencha nome, e-mail, tipo de projeto e mensagem." }, { status: 400 });
     }
 
-    // Verificar se a chave da API está configurada
-    if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY não está configurada');
-      return NextResponse.json(
-        { error: 'Configuração de e-mail não encontrada' },
-        { status: 500 }
-      );
+    if (!process.env.RESEND_API_KEY || !process.env.CONTACT_EMAIL) {
+      console.error("RESEND_API_KEY ou CONTACT_EMAIL não configurados");
+      return NextResponse.json({ error: "Envio de e-mail não configurado." }, { status: 500 });
     }
 
-    // E-mail de destino (substitua pelo seu e-mail)
-    const contactEmail = process.env.CONTACT_EMAIL || 'seu-email@exemplo.com';
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const row = (label: string, value: unknown) =>
+      value ? `<p style="margin:8px 0"><strong>${label}:</strong> ${esc(value)}</p>` : "";
 
-    // Enviar e-mail usando Resend com domínio de sandbox
-    const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Domínio de sandbox do Resend
-      to: [contactEmail],
-      subject: `Nova mensagem de contato - ${subject}`,
+    const { error } = await resend.emails.send({
+      from: "Site Pandex <onboarding@resend.dev>",
+      to: [process.env.CONTACT_EMAIL],
+      replyTo: String(email),
+      subject: `Novo contato pelo site: ${esc(subject)}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #000000; color: #ffffff;">
-          <h1 style="color: #ffffff; border-bottom: 2px solid #ffffff; padding-bottom: 10px;">
-            Nova Mensagem de Contato
-          </h1>
-          
-          <div style="margin: 20px 0;">
-            <h2 style="color: #ffffff; margin-bottom: 10px;">Detalhes do Contato:</h2>
-            
-            <div style="margin: 10px 0;">
-              <strong style="color: #ffffff;">Nome:</strong>
-              <span style="color: #cccccc;"> ${name}</span>
-            </div>
-            
-            <div style="margin: 10px 0;">
-              <strong style="color: #ffffff;">E-mail:</strong>
-              <span style="color: #cccccc;"> ${email}</span>
-            </div>
-            
-            ${phone ? `
-            <div style="margin: 10px 0;">
-              <strong style="color: #ffffff;">Telefone:</strong>
-              <span style="color: #cccccc;"> ${phone}</span>
-            </div>
-            ` : ''}
-            
-            <div style="margin: 10px 0;">
-              <strong style="color: #ffffff;">Assunto:</strong>
-              <span style="color: #cccccc;"> ${subject}</span>
-            </div>
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#0b0b0c;color:#f5f4f0">
+          <h1 style="font-size:20px;margin:0 0 16px">Novo contato pelo site</h1>
+          ${row("Nome", name)}
+          ${row("E-mail", email)}
+          ${row("Empresa ou evento", company)}
+          ${row("Tipo de projeto", subject)}
+          <div style="margin-top:16px;padding:16px;background:#141416;border-radius:6px;line-height:1.6">
+            ${esc(message).replace(/\n/g, "<br>")}
           </div>
-          
-          <div style="margin: 20px 0;">
-            <h2 style="color: #ffffff; margin-bottom: 10px;">Mensagem:</h2>
-            <div style="background-color: #1a1a1a; padding: 15px; border-radius: 5px; color: #cccccc; line-height: 1.6;">
-              ${message.replace(/\n/g, '<br>')}
-            </div>
-          </div>
-          
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #333333; color: #999999; font-size: 12px;">
-            <p>Esta mensagem foi enviada através do formulário de contato do site PandeX Films.</p>
-            <p>Data: ${new Date().toLocaleString('pt-BR')}</p>
-          </div>
-        </div>
-      `,
+          <p style="margin-top:24px;color:#9b9ba3;font-size:12px">Enviado em ${new Date().toLocaleString("pt-BR", { timeZone: "America/Recife" })}</p>
+        </div>`,
     });
 
     if (error) {
-      console.error('Erro ao enviar e-mail:', error);
-      return NextResponse.json(
-        { error: 'Erro ao enviar e-mail. Tente novamente.' },
-        { status: 500 }
-      );
+      console.error("Erro do Resend:", error);
+      return NextResponse.json({ error: "Não foi possível enviar agora." }, { status: 500 });
     }
 
-    return NextResponse.json(
-      { message: 'E-mail enviado com sucesso!' },
-      { status: 200 }
-    );
-
-  } catch (error) {
-    console.error('Erro na API:', error);
-    return NextResponse.json(
-      { error: 'Erro interno do servidor' },
-      { status: 500 }
-    );
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error("Erro na rota de contato:", err);
+    return NextResponse.json({ error: "Erro interno." }, { status: 500 });
   }
-} 
+}

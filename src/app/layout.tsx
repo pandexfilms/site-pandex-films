@@ -1,82 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/contexts/ThemeContext";
+import { SITE_URL } from "@/lib/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-montserrat",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const title = "Pandex Films | Produtora de Vídeo em Recife";
+const description =
+  "Filmes para marcas, eventos e empresas em Recife e João Pessoa. A emoção não acaba. Ela vira filme.";
 
 export const metadata: Metadata = {
-  title: "Pandex Films - Produção de Vídeo Profissional",
-  description:
-    "Especialistas em produção de vídeo profissional, capturando momentos únicos e transformando ideias em experiências visuais memoráveis.",
-  keywords: [
-    "produção de vídeo",
-    "filmagem",
-    "edição",
-    "comercial",
-    "eventos",
-    "documentário",
-  ],
-  authors: [{ name: "Pandex Films" }],
-  creator: "Pandex Films",
-  publisher: "Pandex Films",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://pandexfilms.com"),
-  alternates: {
-    canonical: "/",
-  },
+  metadataBase: new URL(SITE_URL),
+  title,
+  description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Pandex Films - Produção de Vídeo Profissional",
-    description:
-      "Especialistas em produção de vídeo profissional, capturando momentos únicos e transformando ideias em experiências visuais memoráveis.",
-    url: "https://pandexfilms.com",
+    title,
+    description,
+    url: SITE_URL,
     siteName: "Pandex Films",
     locale: "pt_BR",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Pandex Films - Produção de Vídeo Profissional",
-    description:
-      "Especialistas em produção de vídeo profissional, capturando momentos únicos e transformando ideias em experiências visuais memoráveis.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+    <html lang="pt-BR" className={montserrat.variable}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
