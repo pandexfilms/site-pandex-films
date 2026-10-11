@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { CONTACT } from "@/lib/site";
 
 // Escapa o que o visitante digitou antes de pôr no HTML do e-mail.
 function esc(value: unknown) {
@@ -18,10 +19,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Preencha nome, e-mail, tipo de projeto e mensagem." }, { status: 400 });
     }
 
-    if (!process.env.RESEND_API_KEY || !process.env.CONTACT_EMAIL) {
-      console.error("RESEND_API_KEY ou CONTACT_EMAIL não configurados");
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY não configurada");
       return NextResponse.json({ error: "Envio de e-mail não configurado." }, { status: 500 });
     }
+    const to = process.env.CONTACT_EMAIL || CONTACT.email;
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const row = (label: string, value: unknown) =>
@@ -29,7 +31,7 @@ export async function POST(request: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "Site Pandex <onboarding@resend.dev>",
-      to: [process.env.CONTACT_EMAIL],
+      to: [to],
       replyTo: String(email),
       subject: `Novo contato pelo site: ${esc(subject)}`,
       html: `
