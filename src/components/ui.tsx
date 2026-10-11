@@ -26,9 +26,13 @@ export function PrimaryLink({ href, children, external }: { href: string; childr
   );
 }
 
-export function SecondaryLink({ href, children }: { href: string; children: ReactNode }) {
+export function SecondaryLink({ href, children, external }: { href: string; children: ReactNode; external?: boolean }) {
   return (
-    <a href={href} className={`${base} border border-paper/40 text-paper hover:border-paper`}>
+    <a
+      href={href}
+      className={`${base} border border-paper/40 text-paper hover:border-paper`}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
       {children}
     </a>
   );

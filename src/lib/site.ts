@@ -40,6 +40,9 @@ export const FILMS: Film[] = [
   { slug: "team-ma", client: "Team MA", kind: "Campanha", vimeoId: "1154868996" },
 ];
 
+// Pasta com mais trabalhos. Precisa estar com "Qualquer pessoa com o link pode ver" no Google Drive.
+export const MORE_WORK_URL = "https://drive.google.com/drive/folders/1tTDsB03iiIi9-h1TQY1_YFlTZAGD9wVN?usp=share_link";
+
 export const SERVICES = [
   "Filmes de evento",
   "Vídeos institucionais",

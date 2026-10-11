@@ -1,6 +1,6 @@
-import { FILMS } from "@/lib/site";
+import { FILMS, MORE_WORK_URL } from "@/lib/site";
 import { FilmCard } from "./FilmCard";
-import { Eyebrow, Section } from "./ui";
+import { Eyebrow, Section, SecondaryLink } from "./ui";
 
 export function Films() {
   const [first, ...rest] = FILMS;
@@ -17,6 +17,12 @@ export function Films() {
             <FilmCard key={film.slug} film={film} />
           ))}
         </div>
+      </div>
+      <div className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-line pt-10">
+        <p className="text-lg text-paper/80">Tem mais filmes, eventos e campanhas no nosso acervo.</p>
+        <SecondaryLink href={MORE_WORK_URL} external>
+          Ver mais trabalhos
+        </SecondaryLink>
       </div>
     </Section>
   );
