@@ -28,8 +28,8 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <Link href="/" className="text-sm font-bold tracking-[0.35em]" onClick={() => setOpen(false)}>
-          PANDEX<span className="text-glow">.</span>
+        <Link href="/" className="whitespace-nowrap text-sm font-bold tracking-[0.35em]" onClick={() => setOpen(false)}>
+          PANDEX FILMS<span className="text-glow">.</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">

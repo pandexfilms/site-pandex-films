@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-3">
         <div>
           <p className="font-bold tracking-[0.35em]">
-            PANDEX<span className="text-glow">.</span>
+            PANDEX FILMS<span className="text-glow">.</span>
           </p>
           <p className="mt-4 max-w-xs leading-relaxed text-mute">A emoção não acaba. Ela vira filme.</p>
         </div>
