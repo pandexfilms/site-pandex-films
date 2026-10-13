@@ -25,17 +25,17 @@ const CONSEQUENCES = [
 ];
 
 const DELIVERABLES = [
+  { title: "Realtime no evento", text: "Cortes editados e entregues durante o evento, prontos pra postar enquanto todo mundo ainda está lá." },
   { title: "O filme do evento", text: "O aftermovie que resume o dia e vende a próxima edição." },
-  { title: "Cortes dos palestrantes", text: "Trechos curtos pra Instagram e LinkedIn, que circulam por semanas." },
-  { title: "Depoimentos", text: "Participantes contando o que viveram. É a peça que mais convence a próxima turma." },
+  { title: "Palestrantes e depoimentos", text: "Trechos curtos pra Instagram e LinkedIn e participantes contando o que viveram. Circulam por semanas." },
   { title: "Material pra patrocinador", text: "Imagens da marca dele no evento, prontas pra apresentar na renovação." },
 ];
 
 const STEPS = [
   { title: "Conversa", text: "20 minutos sobre o evento e o que você quer fazer com o material." },
   { title: "Proposta", text: "Escopo e prazo fechados, por escrito." },
-  { title: "Filmagem", text: "A gente filma o evento sem atrapalhar a programação." },
-  { title: "Entrega", text: "Primeiro corte enquanto o assunto ainda está quente." },
+  { title: "Filmagem e realtime", text: "A gente filma e entrega os cortes durante o evento, sem atrapalhar a programação." },
+  { title: "Filme do evento", text: "O aftermovie completo, editado com calma pra fechar a edição." },
 ];
 
 export default function EventosPage() {
@@ -54,7 +54,7 @@ export default function EventosPage() {
               Seu evento não pode acabar quando as luzes apagam.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-paper/80 md:text-xl">
-              A gente transforma imersões, summits e encontros em filmes que vendem a próxima edição.
+              A gente filma, edita e entrega durante o evento. Seu público vê o conteúdo enquanto ainda está lá, e o filme vende a próxima edição.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <PrimaryLink href={cta} external>
@@ -89,6 +89,19 @@ export default function EventosPage() {
             </div>
           </div>
         </Section>
+
+        <section className="bg-paper px-5 py-24 text-ink md:py-32">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-ink/60">O diferencial</p>
+            <h2 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
+              Conteúdo em tempo real.
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/75 md:text-xl">
+              Enquanto o evento acontece, a gente capta, edita e entrega os cortes. Você posta no mesmo dia, com o
+              público ainda no clima, e o evento ganha as redes enquanto ainda é assunto.
+            </p>
+          </div>
+        </section>
 
         <Section className="border-t border-line bg-ink">
           <Eyebrow>O que entregamos</Eyebrow>

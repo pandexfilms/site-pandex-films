@@ -10,9 +10,8 @@ const PILLARS = [
     text: "Cada filmagem rende o filme principal e os cortes curtos para Instagram, LinkedIn e anúncio. Um dia de captação vira semanas de conteúdo.",
   },
   {
-    // Quando o prazo real estiver definido (ex.: primeiro corte em 48h), ele entra aqui.
-    title: "Entrega que não esfria",
-    text: "O material chega enquanto o assunto ainda está quente, quando ele ainda tem força pra vender.",
+    title: "Conteúdo em tempo real",
+    text: "Nos eventos, a gente edita e entrega durante o dia. O material chega enquanto o assunto ainda está quente.",
   },
 ];
 
