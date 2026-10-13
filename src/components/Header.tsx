@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -28,8 +29,15 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <Link href="/" className="whitespace-nowrap text-sm font-bold tracking-[0.35em]" onClick={() => setOpen(false)}>
-          PANDEX FILMS<span className="text-glow">.</span>
+        <Link
+          href="/"
+          className="flex items-center gap-3 whitespace-nowrap text-sm font-bold tracking-[0.35em]"
+          onClick={() => setOpen(false)}
+        >
+          <Image src="/logo-mark.png" alt="" width={30} height={30} priority />
+          <span>
+            PANDEX FILMS<span className="text-glow">.</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">

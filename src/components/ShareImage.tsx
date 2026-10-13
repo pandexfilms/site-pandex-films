@@ -1,9 +1,17 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
 // Imagem que aparece quando o link é colado no WhatsApp, Instagram ou LinkedIn.
-// Provisória, só com texto. Quando tiver um frame forte de filme, ele entra como fundo.
+// Quando tiver um frame forte de filme, ele pode entrar como fundo.
 
 export const shareImageSize = { width: 1200, height: 630 };
 
-export function ShareImage({ eyebrow, title }: { eyebrow: string; title: string }) {
+export async function logoDataUrl() {
+  const file = await readFile(join(process.cwd(), "public", "logo-mark.png"));
+  return `data:image/png;base64,${file.toString("base64")}`;
+}
+
+export function ShareImage({ eyebrow, title, logo }: { eyebrow: string; title: string; logo: string }) {
   return (
     <div
       style={{
@@ -14,7 +22,7 @@ export function ShareImage({ eyebrow, title }: { eyebrow: string; title: string 
         justifyContent: "space-between",
         background: "#0b0b0c",
         color: "#f5f4f0",
-        padding: "72px 80px",
+        padding: "64px 80px",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
@@ -24,8 +32,12 @@ export function ShareImage({ eyebrow, title }: { eyebrow: string; title: string 
         </div>
       </div>
       <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 1.05, maxWidth: 980 }}>{title}</div>
-      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 30 }}>
-        <div style={{ fontWeight: 700, letterSpacing: 6 }}>PANDEX FILMS</div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 30 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logo} width={64} height={64} alt="" />
+          <div style={{ fontWeight: 700, letterSpacing: 6 }}>PANDEX FILMS</div>
+        </div>
         <div style={{ color: "#9b9ba3" }}>pandexfilms.com.br</div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CONTACT, SERVICES } from "@/lib/site";
 
@@ -6,7 +7,8 @@ export function Footer() {
     <footer className="border-t border-line px-5 py-14 text-sm">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-3">
         <div>
-          <p className="font-bold tracking-[0.35em]">
+          <Image src="/logo-mark.png" alt="" width={48} height={48} />
+          <p className="mt-4 font-bold tracking-[0.35em]">
             PANDEX FILMS<span className="text-glow">.</span>
           </p>
           <p className="mt-4 max-w-xs leading-relaxed text-mute">A emoção não acaba. Ela vira filme.</p>
