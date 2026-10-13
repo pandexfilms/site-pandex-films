@@ -20,7 +20,7 @@ export function FilmCard({ film, large = false }: { film: Film; large?: boolean 
         />
       </div>
       <div>
-        <p className="text-xs font-medium uppercase tracking-[0.25em] text-glow">{film.kind}</p>
+        <p className="text-xs font-medium uppercase tracking-[0.25em] text-mute">{film.kind}</p>
         <h3 className={`mt-2 font-semibold ${large ? "text-2xl md:text-3xl" : "text-xl"}`}>{film.client}</h3>
       </div>
       {rows.length > 0 && (

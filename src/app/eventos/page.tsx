@@ -81,7 +81,7 @@ export default function EventosPage() {
               <ul className="mt-8 divide-y divide-line border-y border-line">
                 {CONSEQUENCES.map((c) => (
                   <li key={c} className="flex gap-4 py-4 text-paper">
-                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-glow" aria-hidden />
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-paper" aria-hidden />
                     {c}
                   </li>
                 ))}
@@ -116,7 +116,7 @@ export default function EventosPage() {
           <ol className="mt-12 grid gap-10 md:grid-cols-4 md:gap-8">
             {STEPS.map((s, i) => (
               <li key={s.title} className="border-t border-paper/30 pt-6">
-                <span className="text-sm font-medium tabular-nums text-glow">Passo {i + 1}</span>
+                <span className="text-sm font-medium tabular-nums text-mute">Passo {i + 1}</span>
                 <h3 className="mt-3 text-xl font-semibold">{s.title}</h3>
                 <p className="mt-2 leading-relaxed text-mute">{s.text}</p>
               </li>

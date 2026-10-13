@@ -36,7 +36,7 @@ export function Header() {
         >
           <Image src="/logo-mark.png" alt="" width={30} height={30} priority />
           <span>
-            PANDEX FILMS<span className="text-glow">.</span>
+            PANDEX FILMS
           </span>
         </Link>
 

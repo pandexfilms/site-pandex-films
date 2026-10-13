@@ -101,7 +101,7 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="mt-2 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-glow disabled:opacity-60"
+            className="mt-2 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-paper/80 disabled:opacity-60"
           >
             {status === "sending" ? "Enviando..." : "Enviar mensagem"}
           </button>
@@ -109,7 +109,7 @@ export function ContactForm() {
           <p role="status" className="min-h-6 text-sm">
             {status === "sent" && <span className="text-paper">Mensagem enviada. A gente responde em breve.</span>}
             {status === "error" && (
-              <span className="text-glow">
+              <span className="text-paper">
                 Não deu pra enviar agora. Tenta de novo ou chama no WhatsApp: (81) 99167-7447.
               </span>
             )}

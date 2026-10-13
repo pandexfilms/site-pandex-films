@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
     <p className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-mute">
-      <span className="h-1.5 w-1.5 rounded-full bg-glow" aria-hidden />
+      <span className="h-1.5 w-1.5 rounded-full bg-paper" aria-hidden />
       {children}
     </p>
   );
@@ -18,7 +18,7 @@ export function PrimaryLink({ href, children, external }: { href: string; childr
   return (
     <a
       href={href}
-      className={`${base} bg-paper text-ink hover:bg-glow`}
+      className={`${base} bg-paper text-ink hover:bg-paper/80`}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}

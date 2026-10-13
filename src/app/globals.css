@@ -1,13 +1,12 @@
 @import "tailwindcss";
 
-/* Pandex: preto de sala de cinema, branco de tela, um quente de luz de projetor pra destaque. */
+/* Pandex: só preto e branco. Quem dá cor é o filme. */
 @theme {
   --color-ink: #0b0b0c;
   --color-ink-2: #141416;
   --color-line: #2a2a2e;
   --color-paper: #f5f4f0;
   --color-mute: #9b9ba3;
-  --color-glow: #e8b45a;
 }
 
 @theme inline {
@@ -31,12 +30,12 @@ h3 {
 }
 
 ::selection {
-  background: var(--color-glow);
+  background: var(--color-paper);
   color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-glow);
+  outline: 2px solid var(--color-paper);
   outline-offset: 3px;
 }
 

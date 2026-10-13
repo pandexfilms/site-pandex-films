@@ -9,7 +9,7 @@ export function Footer() {
         <div>
           <Image src="/logo-mark.png" alt="" width={48} height={48} />
           <p className="mt-4 font-bold tracking-[0.35em]">
-            PANDEX FILMS<span className="text-glow">.</span>
+            PANDEX FILMS
           </p>
           <p className="mt-4 max-w-xs leading-relaxed text-mute">A emoção não acaba. Ela vira filme.</p>
         </div>

@@ -26,7 +26,7 @@ export function ShareImage({ eyebrow, title, logo }: { eyebrow: string; title: s
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-        <div style={{ width: 14, height: 14, borderRadius: 7, background: "#e8b45a" }} />
+        <div style={{ width: 14, height: 14, borderRadius: 7, background: "#f5f4f0" }} />
         <div style={{ fontSize: 28, letterSpacing: 8, textTransform: "uppercase", color: "#9b9ba3" }}>
           {eyebrow}
         </div>
