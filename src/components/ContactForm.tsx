@@ -6,7 +6,7 @@ import { Eyebrow, Section } from "./ui";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-const empty = { name: "", email: "", company: "", subject: "", message: "" };
+const empty = { name: "", email: "", phone: "", company: "", subject: "", message: "", website: "" };
 
 const field =
   "w-full rounded-lg border border-line bg-ink-2 px-4 py-3 text-paper placeholder:text-mute/70 focus:border-paper focus:outline-none";
@@ -64,7 +64,7 @@ export function ContactForm() {
           </dl>
         </div>
 
-        <form onSubmit={submit} className="grid gap-4" noValidate={false}>
+        <form onSubmit={submit} className="relative grid gap-4" noValidate={false}>
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="grid gap-2 text-sm">
               Nome
@@ -75,10 +75,23 @@ export function ContactForm() {
               <input id="contato-empresa" name="company" value={form.company} onChange={update} className={field} placeholder="Opcional" />
             </label>
           </div>
-          <label className="grid gap-2 text-sm">
-            E-mail
-            <input id="contato-email" type="email" name="email" required value={form.email} onChange={update} className={field} autoComplete="email" />
-          </label>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="grid gap-2 text-sm">
+              E-mail
+              <input id="contato-email" type="email" name="email" required value={form.email} onChange={update} className={field} autoComplete="email" />
+            </label>
+            <label className="grid gap-2 text-sm">
+              WhatsApp
+              <input id="contato-whatsapp" type="tel" name="phone" value={form.phone} onChange={update} className={field} autoComplete="tel" inputMode="tel" placeholder="Opcional" />
+            </label>
+          </div>
+          {/* campo isca pra robô de spam: escondido de gente e de leitor de tela */}
+          <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+            <label>
+              Site
+              <input name="website" tabIndex={-1} autoComplete="off" value={form.website} onChange={update} />
+            </label>
+          </div>
           <label className="grid gap-2 text-sm">
             Tipo de projeto
             <select id="contato-tipo" name="subject" required value={form.subject} onChange={update} className={field}>
