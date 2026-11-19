@@ -37,9 +37,9 @@ export type Film = {
 
 // FYS primeiro: é o vídeo principal do site. O EVM segue como case da /eventos.
 export const FILMS: Film[] = [
-  { slug: "fys", client: "FYS", kind: "Filme de marca", vimeoId: "1248370560" },
+  { slug: "fys", client: "FYS", kind: "Ativação de marca", vimeoId: "1248370560" },
   { slug: "imersao-evm", client: "Imersão EVM", kind: "Evento", vimeoId: "1244425709" },
-  { slug: "cerveja-praya", client: "Cerveja Praya", kind: "Comercial", vimeoId: "1244426713" },
+  { slug: "cerveja-praya", client: "Cerveja Praya", kind: "Ativação de marca", vimeoId: "1244426713" },
 ];
 
 // Pasta com mais trabalhos. Precisa estar com "Qualquer pessoa com o link pode ver" no Google Drive.
