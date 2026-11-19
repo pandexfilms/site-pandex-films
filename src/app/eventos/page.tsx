@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Eyebrow, PrimaryLink, Section, SecondaryLink, VimeoBackground } from "@/components/ui";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { FILMS, HERO_VIDEO_VIMEO_ID, WHATSAPP_MESSAGES, whatsappLink } from "@/lib/site";
+import { EVENTOS_HERO_VIDEO_VIMEO_ID, FILMS, WHATSAPP_MESSAGES, whatsappLink } from "@/lib/site";
 
 const title = "Filmes de Evento em Recife | Pandex Films";
 const description =
@@ -47,7 +47,7 @@ export default function EventosPage() {
       <Header />
       <main>
         <section className="relative flex min-h-[85svh] items-end px-5 pb-20 pt-32 md:items-center md:pb-0">
-          <VimeoBackground vimeoId={HERO_VIDEO_VIMEO_ID} />
+          <VimeoBackground vimeoId={EVENTOS_HERO_VIDEO_VIMEO_ID} />
           <div className="relative mx-auto w-full max-w-6xl">
             <Eyebrow>Filmes de evento · Recife e João Pessoa</Eyebrow>
             <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">

@@ -20,7 +20,9 @@ export const WHATSAPP_MESSAGES = {
   flutuante: "Olá! Gostaria de saber mais sobre os serviços da Pandex Films.",
 };
 
-export const HERO_VIDEO_VIMEO_ID = "1189938651";
+// Fundo do topo da home: FYS. A /eventos usa o recap do EVM, que é o case de evento.
+export const HERO_VIDEO_VIMEO_ID = "1248370560";
+export const EVENTOS_HERO_VIDEO_VIMEO_ID = "1244425709";
 
 export type Film = {
   slug: string;
@@ -33,11 +35,11 @@ export type Film = {
   after?: string;
 };
 
-// EVM primeiro: é o case que a prospecção de eventos usa.
+// FYS primeiro: é o vídeo principal do site. O EVM segue como case da /eventos.
 export const FILMS: Film[] = [
-  { slug: "imersao-evm", client: "Imersão EVM", kind: "Evento", vimeoId: "1189938651" },
-  { slug: "mirai", client: "Mirai Intercâmbios", kind: "Comercial", vimeoId: "1154869295" },
-  { slug: "team-ma", client: "Team MA", kind: "Campanha", vimeoId: "1154868996" },
+  { slug: "fys", client: "FYS", kind: "Filme de marca", vimeoId: "1248370560" },
+  { slug: "imersao-evm", client: "Imersão EVM", kind: "Evento", vimeoId: "1244425709" },
+  { slug: "cerveja-praya", client: "Cerveja Praya", kind: "Comercial", vimeoId: "1244426713" },
 ];
 
 // Pasta com mais trabalhos. Precisa estar com "Qualquer pessoa com o link pode ver" no Google Drive.
