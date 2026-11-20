@@ -23,6 +23,18 @@ export function FilmCard({ film, large = false }: { film: Film; large?: boolean 
         <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">{film.kind}</p>
         <h3 className={`mt-2 font-semibold ${large ? "text-2xl md:text-3xl" : "text-xl"}`}>{film.client}</h3>
       </div>
+      <div className="text-[13px] leading-[1.6]">
+        <p className="mb-2 text-xs font-medium uppercase tracking-[0.14em]">
+          Pandex Films \ {film.client} &apos;{String(film.year).slice(-2)}
+        </p>
+        <p>
+          <span className="text-ink-muted">Direção:</span> {film.direction}
+        </p>
+        <p>
+          <span className="text-ink-muted">Produção/Captação/Edição:</span> Pandex Films
+        </p>
+        <p className="text-ink-muted">{film.city}</p>
+      </div>
       {rows.length > 0 && (
         <dl className="grid gap-3 border-t border-line pt-5 text-sm">
           {rows.map(([label, value]) => (

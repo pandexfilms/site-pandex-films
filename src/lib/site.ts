@@ -29,6 +29,10 @@ export type Film = {
   client: string;
   kind: string;
   vimeoId: string;
+  // Créditos no formato do design system: o projeto se apresenta como obra.
+  year: number;
+  direction: string;
+  city: string;
   // Contexto do case. Enquanto o texto real não chega, fica vazio e o card mostra só cliente e tipo.
   challenge?: string;
   delivered?: string;
@@ -37,9 +41,9 @@ export type Film = {
 
 // FYS primeiro: é o vídeo principal do site. O EVM segue como case da /eventos.
 export const FILMS: Film[] = [
-  { slug: "fys", client: "FYS", kind: "Ativação de marca", vimeoId: "1248370560" },
-  { slug: "imersao-evm", client: "Imersão EVM", kind: "Evento", vimeoId: "1244425709" },
-  { slug: "cerveja-praya", client: "Cerveja Praya", kind: "Ativação de marca", vimeoId: "1244426713" },
+  { slug: "fys", client: "FYS", kind: "Ativação de marca", vimeoId: "1248370560", year: 2026, direction: "Marcus Sampaio", city: "Recife–PE" },
+  { slug: "imersao-evm", client: "Imersão EVM", kind: "Evento", vimeoId: "1244425709", year: 2026, direction: "Marcus Sampaio", city: "Recife–PE" },
+  { slug: "cerveja-praya", client: "Cerveja Praya", kind: "Ativação de marca", vimeoId: "1244426713", year: 2026, direction: "Marcus Sampaio", city: "Recife–PE" },
 ];
 
 // Pasta com mais trabalhos. Precisa estar com "Qualquer pessoa com o link pode ver" no Google Drive.
