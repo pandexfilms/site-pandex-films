@@ -4,21 +4,18 @@ import type { ReactNode } from "react";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-mute">
-      <span className="h-1.5 w-1.5 rounded-full bg-paper" aria-hidden />
-      {children}
-    </p>
+    <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">{children}</p>
   );
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-colors";
+  "inline-flex items-center justify-center gap-2 rounded-sm px-7 py-3.5 text-sm font-semibold transition-colors";
 
 export function PrimaryLink({ href, children, external }: { href: string; children: ReactNode; external?: boolean }) {
   return (
     <a
       href={href}
-      className={`${base} bg-paper text-ink hover:bg-paper/80`}
+      className={`${base} bg-ink text-ink-inverse hover:bg-ink-muted`}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
@@ -30,7 +27,7 @@ export function SecondaryLink({ href, children, external }: { href: string; chil
   return (
     <a
       href={href}
-      className={`${base} border border-paper/40 text-paper hover:border-paper`}
+      className={`${base} border border-line-strong text-ink hover:border-ink`}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
@@ -56,7 +53,9 @@ export function VimeoBackground({ vimeoId }: { vimeoId: string }) {
         title="Vídeo de fundo"
         tabIndex={-1}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/50 to-ink" />
+      {/* Véu do design system (scrim 55%) e fade para o fundo no pé, pra emendar com a próxima seção. */}
+      <div className="absolute inset-0 bg-scrim" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-ground" />
     </div>
   );
 }

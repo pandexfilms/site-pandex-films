@@ -5,7 +5,7 @@ import { Eyebrow, Section, SecondaryLink } from "./ui";
 export function Films() {
   const [first, ...rest] = FILMS;
   return (
-    <Section id="filmes" className="border-t border-line bg-ink">
+    <Section id="filmes" className="border-t border-line bg-ground">
       <Eyebrow>Filmes</Eyebrow>
       <h2 className="mt-6 max-w-2xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
         Filmes reais para marcas reais.
@@ -19,7 +19,7 @@ export function Films() {
         </div>
       </div>
       <div className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-line pt-10">
-        <p className="text-lg text-paper/80">Tem mais filmes, eventos e campanhas no nosso acervo.</p>
+        <p className="text-lg text-ink-muted">Tem mais filmes, eventos e campanhas no nosso acervo.</p>
         <SecondaryLink href={MORE_WORK_URL} external>
           Ver mais trabalhos
         </SecondaryLink>

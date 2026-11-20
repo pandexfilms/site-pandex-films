@@ -20,14 +20,13 @@ export function ShareImage({ eyebrow, title, logo }: { eyebrow: string; title: s
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        background: "#0b0b0c",
-        color: "#f5f4f0",
+        background: "#0a0a0a",
+        color: "#ffffff",
         padding: "64px 80px",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-        <div style={{ width: 14, height: 14, borderRadius: 7, background: "#f5f4f0" }} />
-        <div style={{ fontSize: 28, letterSpacing: 8, textTransform: "uppercase", color: "#9b9ba3" }}>
+        <div style={{ fontSize: 28, letterSpacing: 4, textTransform: "uppercase", color: "#a3a3a3" }}>
           {eyebrow}
         </div>
       </div>
@@ -38,7 +37,7 @@ export function ShareImage({ eyebrow, title, logo }: { eyebrow: string; title: s
           <img src={logo} width={64} height={64} alt="" />
           <div style={{ fontWeight: 700, letterSpacing: 6 }}>PANDEX FILMS</div>
         </div>
-        <div style={{ color: "#9b9ba3" }}>pandexfilms.com.br</div>
+        <div style={{ color: "#a3a3a3" }}>pandexfilms.com.br</div>
       </div>
     </div>
   );

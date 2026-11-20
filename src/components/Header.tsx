@@ -25,7 +25,7 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
-        solid || open ? "bg-ink/95 backdrop-blur border-b border-line" : "bg-transparent"
+        solid || open ? "bg-ground/95 backdrop-blur border-b border-line" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
@@ -42,7 +42,7 @@ export function Header() {
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">
           {NAV.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm text-paper/80 transition-colors hover:text-paper">
+            <Link key={item.href} href={item.href} className="text-sm text-ink-muted transition-colors hover:text-ink">
               {item.label}
             </Link>
           ))}
@@ -56,9 +56,9 @@ export function Header() {
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="block h-px w-6 bg-paper" />
-          <span className={`mt-2 block h-px w-6 bg-paper transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span className="mt-2 block h-px w-6 bg-paper" />
+          <span className="block h-px w-6 bg-ink" />
+          <span className={`mt-2 block h-px w-6 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
+          <span className="mt-2 block h-px w-6 bg-ink" />
         </button>
       </div>
 

@@ -11,10 +11,10 @@ export function Footer() {
           <p className="mt-4 font-bold tracking-[0.35em]">
             PANDEX FILMS
           </p>
-          <p className="mt-4 max-w-xs leading-relaxed text-mute">A emoção não acaba. Ela vira filme.</p>
+          <p className="mt-4 max-w-xs leading-relaxed text-ink-muted">A emoção não acaba. Ela vira filme.</p>
         </div>
         <div>
-          <p className="text-mute">O que fazemos</p>
+          <p className="text-ink-muted">O que fazemos</p>
           <ul className="mt-4 space-y-2">
             {SERVICES.map((s) => (
               <li key={s}>{s}</li>
@@ -22,7 +22,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <p className="text-mute">Contato</p>
+          <p className="text-ink-muted">Contato</p>
           <ul className="mt-4 space-y-2">
             <li>{CONTACT.email}</li>
             <li>{CONTACT.city}</li>
@@ -39,7 +39,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <p className="mx-auto mt-12 max-w-6xl text-mute">© {new Date().getFullYear()} Pandex Films</p>
+      <p className="mx-auto mt-12 max-w-6xl text-ink-muted">© {new Date().getFullYear()} Pandex Films</p>
     </footer>
   );
 }

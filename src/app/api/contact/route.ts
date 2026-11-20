@@ -37,7 +37,7 @@ async function sendEmail({ name, email, phone, company, subject, message }: Reco
       replyTo: String(email),
       subject: `Novo contato pelo site: ${esc(subject)}`,
       html: `
-        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#0b0b0c;color:#f5f4f0">
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#0a0a0a;color:#ffffff">
           <h1 style="font-size:20px;margin:0 0 16px">Novo contato pelo site</h1>
           ${row("Nome", name)}
           ${row("E-mail", email)}
@@ -47,7 +47,7 @@ async function sendEmail({ name, email, phone, company, subject, message }: Reco
           <div style="margin-top:16px;padding:16px;background:#141416;border-radius:6px;line-height:1.6">
             ${esc(message).replace(/\n/g, "<br>")}
           </div>
-          <p style="margin-top:24px;color:#9b9ba3;font-size:12px">Enviado em ${new Date().toLocaleString("pt-BR", { timeZone: "America/Recife" })}</p>
+          <p style="margin-top:24px;color:#a3a3a3;font-size:12px">Enviado em ${new Date().toLocaleString("pt-BR", { timeZone: "America/Recife" })}</p>
         </div>`,
     });
 

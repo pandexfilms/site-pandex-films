@@ -8,9 +8,9 @@ export function Hero() {
       <div className="relative mx-auto w-full max-w-6xl">
         <Eyebrow>Produtora audiovisual · Recife</Eyebrow>
         <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl lg:text-8xl">
-          <span className="text-mute">A emoção não acaba.</span> Ela vira filme.
+          <span className="text-ink-muted">A emoção não acaba.</span> Ela vira filme.
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-paper/80 md:text-xl">
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted md:text-xl">
           Filmes para marcas e eventos que não podem ser esquecidos em três dias.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">

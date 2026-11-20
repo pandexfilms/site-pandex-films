@@ -17,13 +17,13 @@ const PILLARS = [
 
 export function About() {
   return (
-    <Section id="sobre" className="bg-ink">
+    <Section id="sobre" className="bg-ground">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
         <div>
           <Eyebrow>Sobre a Pandex</Eyebrow>
           <h2 className="mt-6 text-4xl font-bold leading-tight tracking-tight md:text-5xl">Percepção gera valor.</h2>
         </div>
-        <div className="space-y-5 text-lg leading-relaxed text-paper/80">
+        <div className="space-y-5 text-lg leading-relaxed text-ink-muted">
           <p>
             Tem empresa que é muito melhor do que parece. O evento foi incrível e sobrou foto de celular. A marca é
             séria e o vídeo não mostra isso.
@@ -32,15 +32,15 @@ export function About() {
             A Pandex Films existe pra fechar essa distância. A gente filma pessoas reais, momentos reais e transforma
             isso em filme, com direção e edição pensadas pra onde o vídeo vai circular depois.
           </p>
-          <p className="text-paper">Numa época de conteúdo gerado por IA, o que é real vale mais. É isso que a gente entrega.</p>
+          <p className="text-ink">Numa época de conteúdo gerado por IA, o que é real vale mais. É isso que a gente entrega.</p>
         </div>
       </div>
 
-      <div className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
+      <div className="mt-20 grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-3">
         {PILLARS.map((p) => (
-          <div key={p.title} className="bg-ink-2 p-8">
+          <div key={p.title} className="bg-surface p-8">
             <h3 className="text-xl font-semibold">{p.title}</h3>
-            <p className="mt-3 leading-relaxed text-mute">{p.text}</p>
+            <p className="mt-3 leading-relaxed text-ink-muted">{p.text}</p>
           </div>
         ))}
       </div>

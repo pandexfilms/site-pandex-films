@@ -9,7 +9,7 @@ type Status = "idle" | "sending" | "sent" | "error";
 const empty = { name: "", email: "", phone: "", company: "", subject: "", message: "", website: "" };
 
 const field =
-  "w-full rounded-lg border border-line bg-ink-2 px-4 py-3 text-paper placeholder:text-mute/70 focus:border-paper focus:outline-none";
+  "w-full rounded-sm border border-line-strong bg-surface-raised px-4 py-3 text-ink placeholder:text-ink-subtle focus:border-ink focus:outline-none";
 
 export function ContactForm() {
   const [form, setForm] = useState(empty);
@@ -36,17 +36,17 @@ export function ContactForm() {
   }
 
   return (
-    <Section id="contato" className="border-t border-line bg-ink">
+    <Section id="contato" className="border-t border-line bg-ground">
       <div className="grid gap-14 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
         <div>
           <Eyebrow>Contato</Eyebrow>
           <h2 className="mt-6 text-4xl font-bold leading-tight tracking-tight md:text-5xl">Qual é o seu próximo filme?</h2>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-paper/80">
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-muted">
             Conta o que você precisa. A gente responde com uma proposta.
           </p>
           <dl className="mt-10 space-y-5 text-sm">
             <div>
-              <dt className="text-mute">WhatsApp</dt>
+              <dt className="text-ink-muted">WhatsApp</dt>
               <dd className="mt-1">
                 <a href={whatsappLink(WHATSAPP_MESSAGES.home)} target="_blank" rel="noopener noreferrer" className="text-base underline-offset-4 hover:underline">
                   (81) 99167-7447
@@ -54,11 +54,11 @@ export function ContactForm() {
               </dd>
             </div>
             <div>
-              <dt className="text-mute">E-mail</dt>
+              <dt className="text-ink-muted">E-mail</dt>
               <dd className="mt-1 text-base">{CONTACT.email}</dd>
             </div>
             <div>
-              <dt className="text-mute">Base</dt>
+              <dt className="text-ink-muted">Base</dt>
               <dd className="mt-1 text-base">{CONTACT.city} · atendemos também João Pessoa</dd>
             </div>
           </dl>
@@ -114,15 +114,15 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="mt-2 inline-flex items-center justify-center rounded-full bg-paper px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-paper/80 disabled:opacity-60"
+            className="mt-2 inline-flex items-center justify-center rounded-sm bg-ink px-7 py-3.5 text-sm font-semibold text-ink-inverse transition-colors hover:bg-ink-muted disabled:opacity-60"
           >
             {status === "sending" ? "Enviando..." : "Enviar mensagem"}
           </button>
 
           <p role="status" className="min-h-6 text-sm">
-            {status === "sent" && <span className="text-paper">Mensagem enviada. A gente responde em breve.</span>}
+            {status === "sent" && <span className="text-ink">Mensagem enviada. A gente responde em breve.</span>}
             {status === "error" && (
-              <span className="text-paper">
+              <span className="text-ink">
                 Não deu pra enviar agora. Tenta de novo ou chama no WhatsApp: (81) 99167-7447.
               </span>
             )}

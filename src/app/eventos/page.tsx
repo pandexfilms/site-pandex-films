@@ -53,7 +53,7 @@ export default function EventosPage() {
             <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
               Seu evento não pode acabar quando as luzes apagam.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-paper/80 md:text-xl">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted md:text-xl">
               A gente filma, edita e entrega durante o evento. Seu público vê o conteúdo enquanto ainda está lá, e o filme vende a próxima edição.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
@@ -65,7 +65,7 @@ export default function EventosPage() {
           </div>
         </section>
 
-        <Section className="bg-ink">
+        <Section className="bg-ground">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
             <div>
               <Eyebrow>O problema</Eyebrow>
@@ -74,14 +74,14 @@ export default function EventosPage() {
               </h2>
             </div>
             <div>
-              <p className="text-lg leading-relaxed text-paper/80">
+              <p className="text-lg leading-relaxed text-ink-muted">
                 Você passa meses montando um evento. Palestrante bom, sala cheia, networking acontecendo. Na
                 segunda-feira, o que sobrou foi story que some em 24 horas e foto de celular no grupo.
               </p>
               <ul className="mt-8 divide-y divide-line border-y border-line">
                 {CONSEQUENCES.map((c) => (
-                  <li key={c} className="flex gap-4 py-4 text-paper">
-                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-paper" aria-hidden />
+                  <li key={c} className="flex gap-4 py-4 text-ink">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ink" aria-hidden />
                     {c}
                   </li>
                 ))}
@@ -90,57 +90,57 @@ export default function EventosPage() {
           </div>
         </Section>
 
-        <section className="bg-paper px-5 py-24 text-ink md:py-32">
+        <section className="theme-light bg-ground px-5 py-24 text-ink md:py-32">
           <div className="mx-auto max-w-6xl">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-ink/60">O diferencial</p>
+            <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink-subtle">O diferencial</p>
             <h2 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.02] tracking-tight md:text-7xl">
               Conteúdo em tempo real.
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/75 md:text-xl">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
               Enquanto o evento acontece, a gente capta, edita e entrega os cortes. Você posta no mesmo dia, com o
               público ainda no clima, e o evento ganha as redes enquanto ainda é assunto.
             </p>
           </div>
         </section>
 
-        <Section className="border-t border-line bg-ink">
+        <Section className="border-t border-line bg-ground">
           <Eyebrow>O que entregamos</Eyebrow>
           <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
             Um dia de evento, semanas de conteúdo.
           </h2>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2">
             {DELIVERABLES.map((d) => (
-              <div key={d.title} className="bg-ink-2 p-8">
+              <div key={d.title} className="bg-surface p-8">
                 <h3 className="text-xl font-semibold">{d.title}</h3>
-                <p className="mt-3 leading-relaxed text-mute">{d.text}</p>
+                <p className="mt-3 leading-relaxed text-ink-muted">{d.text}</p>
               </div>
             ))}
           </div>
         </Section>
 
-        <Section id="case" className="border-t border-line bg-ink">
+        <Section id="case" className="border-t border-line bg-ground">
           <Eyebrow>Case</Eyebrow>
           <h2 className="mb-12 mt-6 text-4xl font-bold leading-tight tracking-tight md:text-5xl">{evm.client}</h2>
           <FilmCard film={evm} large />
         </Section>
 
-        <Section className="border-t border-line bg-ink">
+        <Section className="border-t border-line bg-ground">
           <Eyebrow>Como funciona</Eyebrow>
           <ol className="mt-12 grid gap-10 md:grid-cols-4 md:gap-8">
             {STEPS.map((s, i) => (
-              <li key={s.title} className="border-t border-paper/30 pt-6">
-                <span className="text-sm font-medium tabular-nums text-mute">Passo {i + 1}</span>
+              <li key={s.title} className="border-t border-line-strong pt-6">
+                <span className="text-sm font-medium tabular-nums text-ink-muted">Passo {i + 1}</span>
                 <h3 className="mt-3 text-xl font-semibold">{s.title}</h3>
-                <p className="mt-2 leading-relaxed text-mute">{s.text}</p>
+                <p className="mt-2 leading-relaxed text-ink-muted">{s.text}</p>
               </li>
             ))}
           </ol>
         </Section>
 
-        <Section className="border-t border-line bg-ink-2">
+        <Section className="border-t border-line bg-surface">
           <div className="max-w-3xl">
             <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl">Qual é o seu próximo evento?</h2>
-            <p className="mt-6 text-lg leading-relaxed text-paper/80">
+            <p className="mt-6 text-lg leading-relaxed text-ink-muted">
               Conta a data e o formato. A gente responde com uma proposta.
             </p>
             <div className="mt-10">

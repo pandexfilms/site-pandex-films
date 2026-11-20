@@ -1,12 +1,39 @@
 @import "tailwindcss";
 
-/* Pandex: só preto e branco. Quem dá cor é o filme. */
+/* Pandex: só preto e branco. Quem dá cor é o filme.
+   Tokens com os mesmos nomes e valores do design system da Pandex (tema escuro).
+   ink = texto, ground/surface = fundo. */
 @theme {
-  --color-ink: #0b0b0c;
-  --color-ink-2: #141416;
-  --color-line: #2a2a2e;
-  --color-paper: #f5f4f0;
-  --color-mute: #9b9ba3;
+  --color-ground: #0a0a0a;
+  --color-surface: #141414;
+  --color-surface-raised: #1f1f1f;
+  --color-ink: #ffffff;
+  --color-ink-inverse: #0a0a0a;
+  --color-ink-muted: #a3a3a3;
+  --color-ink-subtle: #8a8a8a;
+  --color-line: #2e2e2e;
+  --color-line-strong: #6b6b6b;
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
+  --color-scrim: rgba(0, 0, 0, 0.55);
+
+  /* O quadro é reto. Raio pequeno só em interface, nada de pílula. */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+/* Tema claro do design system, para uma seção em destaque. */
+.theme-light {
+  --color-ground: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-surface-raised: #ebebeb;
+  --color-ink: #0a0a0a;
+  --color-ink-inverse: #ffffff;
+  --color-ink-muted: #525252;
+  --color-ink-subtle: #666666;
+  --color-line: #e0e0e0;
+  --color-line-strong: #8f8f8f;
 }
 
 @theme inline {
@@ -19,8 +46,8 @@ html {
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-ground);
+  color: var(--color-ink);
 }
 
 h1,
@@ -30,12 +57,12 @@ h3 {
 }
 
 ::selection {
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-ink-inverse);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-paper);
+  outline: 2px solid var(--color-ink);
   outline-offset: 3px;
 }
 
