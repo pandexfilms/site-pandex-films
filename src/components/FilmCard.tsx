@@ -30,9 +30,6 @@ export function FilmCard({ film, large = false }: { film: Film; large?: boolean 
         <p>
           <span className="text-ink-muted">Direção:</span> {film.direction}
         </p>
-        <p>
-          <span className="text-ink-muted">Produção/Captação/Edição:</span> Pandex Films
-        </p>
         <p className="text-ink-muted">{film.city}</p>
       </div>
       {rows.length > 0 && (
